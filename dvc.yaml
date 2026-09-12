@@ -1,0 +1,35 @@
+stages:
+  prepare:
+    cmd: python -m mlpipe.prepare
+    deps:
+      - data/kc_house_data.csv
+      - mlpipe/features.py
+      - mlpipe/prepare.py
+      - para_config.yml
+    outs:
+      - data/processed_kc_house_data.csv
+
+  train:
+    cmd: python -m mlpipe.train --model lightgbm
+    deps:
+      - data/processed_kc_house_data.csv
+      - mlpipe/pipeline.py
+      - mlpipe/train.py
+      - para_config.yml
+    outs:
+      - models/lightgbm_model.joblib
+
+  evaluate:
+    cmd: python -m mlpipe.evaluate --model lightgbm
+    deps:
+      - data/processed_kc_house_data.csv
+      - models/lightgbm_model.joblib
+      - mlpipe/evaluate.py
+      - para_config.yml
+    metrics:
+      - reports/metrics.json:
+          cache: false
+    plots:
+      - reports/residual_plot_lightgbm.png:
+          cache: false
+    

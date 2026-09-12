@@ -1,0 +1,78 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python -m mlpipe.prepare
+    deps:
+    - path: data/kc_house_data.csv
+      hash: md5
+      md5: b1e7bdf4f3e61792c0979a5697dc7145
+      size: 2515206
+    - path: mlpipe/features.py
+      hash: md5
+      md5: b0ae8b2d5796bf336e126bbab75bf704
+      size: 1690
+    - path: mlpipe/prepare.py
+      hash: md5
+      md5: 005c1ed0f00b43a7e3ad469d0d98e036
+      size: 1069
+    - path: para_config.yml
+      hash: md5
+      md5: bff53d795eafe3d3cbabeeb50320ff55
+      size: 1417
+    outs:
+    - path: data/processed_kc_house_data.csv
+      hash: md5
+      md5: 1e76962f20c6d46ed7e53805a8accdf7
+      size: 7549632
+  train:
+    cmd: python -m mlpipe.train --model lightgbm
+    deps:
+    - path: data/processed_kc_house_data.csv
+      hash: md5
+      md5: 1e76962f20c6d46ed7e53805a8accdf7
+      size: 7549632
+    - path: mlpipe/pipeline.py
+      hash: md5
+      md5: f450b8fc16e280048f2daa27f9a9587d
+      size: 4538
+    - path: mlpipe/train.py
+      hash: md5
+      md5: 17064171c855776f87076b94ce5f415d
+      size: 7333
+    - path: para_config.yml
+      hash: md5
+      md5: bff53d795eafe3d3cbabeeb50320ff55
+      size: 1417
+    outs:
+    - path: models/lightgbm_model.joblib
+      hash: md5
+      md5: f7f4cb4c347a43a65ff008b3cfc9049c
+      size: 601036
+  evaluate:
+    cmd: python -m mlpipe.evaluate --model lightgbm
+    deps:
+    - path: data/processed_kc_house_data.csv
+      hash: md5
+      md5: 1e76962f20c6d46ed7e53805a8accdf7
+      size: 7549632
+    - path: mlpipe/evaluate.py
+      hash: md5
+      md5: 7cbed8fe9cb64a580aa7a8360da064ae
+      size: 4575
+    - path: models/lightgbm_model.joblib
+      hash: md5
+      md5: f7f4cb4c347a43a65ff008b3cfc9049c
+      size: 601036
+    - path: para_config.yml
+      hash: md5
+      md5: bff53d795eafe3d3cbabeeb50320ff55
+      size: 1417
+    outs:
+    - path: reports/metrics.json
+      hash: md5
+      md5: 6959bf99e578ba3f61c033f803d552bd
+      size: 161
+    - path: reports/residual_plot_lightgbm.png
+      hash: md5
+      md5: ef3f43e6413ae71ff589648510d202b2
+      size: 55546
