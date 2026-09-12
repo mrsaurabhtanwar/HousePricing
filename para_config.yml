@@ -74,9 +74,3 @@ boosting_models:
     depth: 6
     verbose: 0
     random_state: 42
-
-neural_net:
-  hidden_layer_sizes: [128, 64]
-  max_iters: 300
-  early_stopping: ture
-  random_state: 42

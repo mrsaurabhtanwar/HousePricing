@@ -1,4 +1,5 @@
 .venv/
 catboost_info/
-data/
-/data
+__pycache__/
+models
+mlruns
