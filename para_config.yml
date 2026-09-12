@@ -1,0 +1,82 @@
+data:
+  processed_data: "d:/HousePricing/data/processed_kc_house_data.csv"
+  target_column: "log_price"
+  test_size: 0.2
+  random_state: 42
+
+linear_models:
+  alpha: 10
+  alpha_grid:
+    start_exp: -5
+    stop_exp: 2
+    num_points: 50
+  elastic_net:
+    l1_ratio: 0.5
+    l1_ratios: [0.0, 1.0]
+  cv_folds: 5
+  max_iters: 5000
+
+
+distance_models:
+  knn:
+    n_neighbors: 7
+    n_jobs: -1
+  linear_svr:
+    c_param: 1.0
+    tol: 0.001
+    max_iters: 5000
+
+tree_models:
+  decision_tree:
+    max_depth: 12
+    random_state: 42
+  random_forest:
+    n_estimators: 120
+    max_depth: 16
+    n_jobs: -1
+    random_state: 42
+  extra_trees:
+    n_estimators: 120
+    max_depth: 16
+    n_jobs: -1
+    random_state: 42
+
+boosting_models:
+  gradient_boosting:
+    n_estimators: 150
+    learning_rate: 0.08
+    max_depth: 5
+    random_state: 42
+  hist_gradient_boosting:
+    max_iter: 150
+    learning_rate: 0.08
+    max_depth: 8
+    random_state: 42
+  xgboost:
+    n_estimators: 200
+    learning_rate: 0.06
+    max_depth: 6
+    subsample: 0.8
+    colsample_bytree: 0.8
+    n_jobs: -1
+    random_state: 42
+  lightgbm:
+    n_estimators: 200
+    learning_rate: 0.06
+    num_points: 45
+    subsample: 0.8
+    n_jobs: -1
+    random_state: 42
+    verbose: -1
+  catboost:
+    iterations: 250
+    learning_rate: 0.08
+    depth: 6
+    verbose: 0
+    random_state: 42
+
+neural_net:
+  hidden_layer_sizes: [128, 64]
+  max_iters: 300
+  early_stopping: ture
+  random_state: 42
