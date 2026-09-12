@@ -14,3 +14,5 @@ mlflow
 dvc
 uvicorn
 streamlit
+sqlalchemy
+python-dotenv
