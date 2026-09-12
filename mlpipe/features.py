@@ -39,7 +39,7 @@ def feature_engineering(df: pd.DataFrame) -> pd.DataFrame:
         df_model["zipcode"] = df_model["zipcode"].astype(str)
         df_model = pd.get_dummies(df_model, columns=["zipcode"], drop_first=True, dtype=int)
         
-    df_model = df_model.drop(columns=["id", "date", "yr_built", "yr_renovated"])
+    df_model = df_model.drop(columns=["id", "date", "yr_built", "yr_renovated"] + skewed_cols)
     
     return df_model
     

@@ -9,8 +9,8 @@ stages:
       size: 2515206
     - path: mlpipe/features.py
       hash: md5
-      md5: b0ae8b2d5796bf336e126bbab75bf704
-      size: 1690
+      md5: 666a13594fcc9c2867921c83e3d11e3f
+      size: 1704
     - path: mlpipe/prepare.py
       hash: md5
       md5: 005c1ed0f00b43a7e3ad469d0d98e036
@@ -22,15 +22,15 @@ stages:
     outs:
     - path: data/processed_kc_house_data.csv
       hash: md5
-      md5: 1e76962f20c6d46ed7e53805a8accdf7
-      size: 7549632
+      md5: 3eef8060c9ab2ddacb1ba2a07bce8dcd
+      size: 6939227
   train:
     cmd: python -m mlpipe.train --model lightgbm
     deps:
     - path: data/processed_kc_house_data.csv
       hash: md5
-      md5: 1e76962f20c6d46ed7e53805a8accdf7
-      size: 7549632
+      md5: 3eef8060c9ab2ddacb1ba2a07bce8dcd
+      size: 6939227
     - path: mlpipe/pipeline.py
       hash: md5
       md5: f450b8fc16e280048f2daa27f9a9587d
@@ -46,23 +46,23 @@ stages:
     outs:
     - path: models/lightgbm_model.joblib
       hash: md5
-      md5: f7f4cb4c347a43a65ff008b3cfc9049c
-      size: 601036
+      md5: c99af020a8c1a18563d8aa29bbf285bb
+      size: 600075
   evaluate:
     cmd: python -m mlpipe.evaluate --model lightgbm
     deps:
     - path: data/processed_kc_house_data.csv
       hash: md5
-      md5: 1e76962f20c6d46ed7e53805a8accdf7
-      size: 7549632
+      md5: 3eef8060c9ab2ddacb1ba2a07bce8dcd
+      size: 6939227
     - path: mlpipe/evaluate.py
       hash: md5
       md5: 7cbed8fe9cb64a580aa7a8360da064ae
       size: 4575
     - path: models/lightgbm_model.joblib
       hash: md5
-      md5: f7f4cb4c347a43a65ff008b3cfc9049c
-      size: 601036
+      md5: c99af020a8c1a18563d8aa29bbf285bb
+      size: 600075
     - path: para_config.yml
       hash: md5
       md5: bff53d795eafe3d3cbabeeb50320ff55
@@ -70,9 +70,9 @@ stages:
     outs:
     - path: reports/metrics.json
       hash: md5
-      md5: 6959bf99e578ba3f61c033f803d552bd
-      size: 161
+      md5: 7803c88ee302858a6fc27adab64f2fa7
+      size: 162
     - path: reports/residual_plot_lightgbm.png
       hash: md5
-      md5: ef3f43e6413ae71ff589648510d202b2
-      size: 55546
+      md5: 3a80432fac61b6c4f1feca17a6f6e895
+      size: 55567

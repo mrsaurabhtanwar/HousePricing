@@ -1,7 +1,7 @@
 {
     "model": "lightgbm",
     "test_r2_log": 0.9103,
-    "test_mae_dollars": 62970.1,
-    "test_rmse_dollars": 111843.27,
+    "test_mae_dollars": 62971.31,
+    "test_rmse_dollars": 111846.28,
     "test_mape_percent": 11.66
 }
