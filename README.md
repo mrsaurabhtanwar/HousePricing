@@ -1,3 +1,5 @@
+
+
 # 🏡 King County Real Estate Valuation & Price Prediction Engine
 
 [![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
@@ -16,9 +18,7 @@
 
 ## 🎬 Demo Video
 
-https://github.com/user-attachments/assets/YOUR_VIDEO_ASSET_ID_HERE
-
-> 💡 **Tip:** Replace the link above with your uploaded GitHub demo video URL (drag-and-drop your `.mp4` into a GitHub Issue/PR or Releases to get the hosted URL).
+https://github.com/user-attachments/assets/0b0b1029-6c08-4720-8b3f-23d7c50f999c
 
 ---
 
