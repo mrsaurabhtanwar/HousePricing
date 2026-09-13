@@ -12,7 +12,10 @@ jinja2
 pyyaml
 mlflow
 dvc
+fastapi
 uvicorn
 streamlit
 sqlalchemy
 python-dotenv
+pytest
+httpx

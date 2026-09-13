@@ -1,3 +1,4 @@
+import os
 import requests
 import streamlit as st
 
@@ -5,7 +6,7 @@ st.set_page_config(page_title="House Valuation Engine", layout="wide")
 
 st.title("King County House Valuation Engine")
 
-API_URL = "http://localhost:8000/predict-price"
+API_URL = os.getenv("BACKEND_API_URL", "http://localhost:8000/predict-price")
 
 col1, col2, col3 = st.columns(3)
 

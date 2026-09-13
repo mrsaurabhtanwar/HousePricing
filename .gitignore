@@ -1,5 +1,7 @@
 .venv/
 catboost_info/
 __pycache__/
-models
 mlruns
+.pytest_cache/
+models/*
+!models/lightgbm_model.joblib
